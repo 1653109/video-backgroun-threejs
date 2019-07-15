@@ -52,7 +52,17 @@ function initCamera() {
 
   if (hasGetUserMedia()) {
     const constraints = {
-      video: true
+      video: {
+        width: {
+          min: window.innerWidth
+        },
+        height: {
+          min: window.innerHeight
+        },
+        facingMode: {
+          exact: 'environment'
+        }
+      }
     };
     const video = document.querySelector('video');
 
